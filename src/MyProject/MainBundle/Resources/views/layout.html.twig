@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+        {% block stylesheets %}
+             <link href="{{ asset("bundles/myprojectmain/css/main.css") }}" rel="stylesheet" type="text/css" />
+        {#   <link href="{{ asset("bundles/myprojectmain/css/fancybox/fancybox.min.css") }}" rel="stylesheet" type="text/css" /> #}
+        
+
+        {#
+        {% javascripts '@MyProjectMainBundle/Resources/public/js/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts '@MyProjectMainBundle/Resources/public/js/fancybox/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        #}
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="page_margins">
+            <div id="" style="position: relative;min-height: 80px;">
+                <div class="gainlayout" id="logo">
+                    <h2><a title="&quot;Стиль&quot;" href="">"Jewerly"</a></h2>
+                </div>
+                
+            </div>
+            <div style="min-height: 50px;position: relative;">
+                <div class="gainlayout" id="topmenuwrap">
+                    <div class="gainlayout" id="topmenu">
+                        <div class="moduletable_menu">
+                             <ul class="menu">
+                                <li class="item-101">
+                                    <a href="{{ path('MyProjectMainBundle_homepage') }}">Главная</a>
+                                </li>
+                                <li class="item-111">
+                                    <a href="{{ path('MyProjectMainBundle_contacts') }}">Контакты</a>
+                                </li>
+                            </ul>
+                         </div>
+                     </div> 
+                     <div style="float:right">
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <a href="{{ path('sonata_admin_dashboard') }}">
+                                    Администраторский раздел</a> |
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                                    <a href="{{ path('fos_user_security_logout') }}">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
+                                {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                {% endif %}
+                      </div>
+                </div>
+            </div>
+            <div style="width:100%; min-height: 500px;">
+                <div style="width: 230px;float:left; margin-left: 15px;">
+                   {% block sidebar %}
+                        {% render "MyProjectMainBundle:Sidebar:index" %}
+                   {% endblock %}
+                </div>
+                <div style="">
+                    <div style="margin: 0 0 0 230px;">
+                            {% block body %}
+                            
+                            {% endblock %}
+                    </div>
+                </div>    
+            </div>
+            <div id="footer">
+                <div id="footer_line">
+                    <span class="footer_text">sssssssssss</span>
+                </div>
+            </div>
+            
+        </div>
+
+       
+
+
+            </body>
+        </html>
+

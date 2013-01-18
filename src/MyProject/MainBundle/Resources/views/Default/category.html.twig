@@ -1,0 +1,27 @@
+{% extends 'MyProjectMainBundle:Default:main.html.twig' %}
+
+{% block title%}{{category}} {%endblock%}
+
+{% block body %}
+     <ul class="productList">
+     {% for key, product in products %}
+        {% if product.images is not empty %}         
+            <li>
+                <div class="polaroid polaroid_{{ key }}">
+                {% for key_img, image in product.images %} 
+                    <a href="../uploads/images/{{ image.name }}" style="{% if key_img != 0  %} display:none; {% endif %}">
+                    <img src="../uploads/images/{{ image.name }}" alt="{{ product.name }}" />
+                    </a>
+                {% endfor %} 
+                </div>
+                <div class="polaroid-caption polaroid-caption_{{ key }}">
+                    <a class="prev prev_{{ key }}" href="#"></a>
+                    <a class="next next_{{ key }}" href="#"></a>
+                    <p class="caption caption_{{ key }}">{{ product.name }}</p>
+                </div>
+  
+             </li>
+          {%endif%}
+      {% endfor %}
+      </ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+services:
+    myproject.mian.admin.products:
+             class: MyProject\MainBundle\Admin\ProductsAdmin
+             tags:
+                 - { name: sonata.admin, manager_type: orm, group: main, label: Products }
+             arguments: [null, MyProject\MainBundle\Entity\Products, MyProjectMainBundle:ProductsAdmin]
+    myproject.mian.admin.images:
+             class: MyProject\MainBundle\Admin\ImagesAdmin
+             tags:
+                 - { name: sonata.admin, manager_type: orm, group: main, label: Images }
+             arguments: [null, MyProject\MainBundle\Entity\Images, MyProjectMainBundle:ImagesAdmin]
+    myproject.mian.admin.category:
+             class: MyProject\MainBundle\Admin\CategoryAdmin
+             tags:
+                 - { name: sonata.admin, manager_type: orm, group: main, label: Category }
+             arguments: [null, MyProject\MainBundle\Entity\Category, MyProjectMainBundle:CategoryAdmin]
+    myproject.mian.admin.order:
+             class: MyProject\MainBundle\Admin\OrderAdmin
+             tags:
+                 - { name: sonata.admin, manager_type: orm, group: main, label: Order }
+             arguments: [null, MyProject\MainBundle\Entity\Order, MyProjectMainBundle:OrderAdmin]

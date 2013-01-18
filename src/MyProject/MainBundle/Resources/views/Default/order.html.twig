@@ -1,0 +1,9 @@
+{% extends 'MyProjectMainBundle::layout.html.twig' %}
+{%block title%}Контакты{%endblock%}
+{% block body %}
+<form action="{{ path('MyProjectMainBundle_order') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>
+{% endblock %}

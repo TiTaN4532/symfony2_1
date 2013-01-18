@@ -1,0 +1,25 @@
+{% extends 'MyProjectMainBundle::layout.html.twig' %}
+
+{% block title %}
+{% endblock %}
+
+{% block stylesheets %}
+        {{parent()}}
+        <link href="{{ asset("bundles/myprojectmain/css/fancybox/fancybox.min.css") }}" rel="stylesheet" type="text/css" />
+        {% javascripts '@MyProjectMainBundle/Resources/public/js/*' %}
+                <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts '@MyProjectMainBundle/Resources/public/js/fancybox/*' %}
+                <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+{% endblock %}
+  
+{% block sidebar %}
+    {% render "MyProjectMainBundle:Sidebar:index" with { slug: slug } %}
+{% endblock %}
+
+{% block body %}
+    <div>Главная</div>
+{% endblock %}
+

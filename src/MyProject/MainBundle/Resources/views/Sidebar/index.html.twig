@@ -1,0 +1,23 @@
+
+    <div style="width:190px;" id="sidebar">     
+        <div class="moduletable">
+            <h3>Категории</h3>
+
+            <ul class="menu">
+
+                {% for category in categories %}
+
+                    <li class="item-104">
+
+                        <a {% if slug == category.slug %}href="javascript://;" class="active-link"{% else %} href="{{ path('MyProjectMainBundle_category', { 'slug': category.slug }) }}" {% endif %}>
+                            {{ category.name }}
+                        </a>
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+    </div>
